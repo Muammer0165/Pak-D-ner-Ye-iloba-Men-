@@ -4,13 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>FC MOBILE 3D HUB</title>
+<title>FC Mobile Database</title>
 
 <style>
-
-/* =========================
-   TEMEL
-========================= */
 
 *{
     margin:0;
@@ -18,831 +14,654 @@
     box-sizing:border-box;
 }
 
-html{
-    scroll-behavior:smooth;
-}
-
 body{
+    background:#0d0c1b;
+    color:#fff;
     font-family:Arial,Helvetica,sans-serif;
-    background:
-        radial-gradient(circle at 10% 10%,#4c00ff44,transparent 30%),
-        radial-gradient(circle at 90% 20%,#00eaff33,transparent 30%),
-        radial-gradient(circle at 50% 100%,#ff006633,transparent 35%),
-        #050611;
-    color:white;
-    min-height:100vh;
-    overflow-x:hidden;
 }
 
 
-/* =========================
-   ARKA PLAN
-========================= */
+/* ==============================
+   ÜST BAR
+============================== */
 
-body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    background-image:
-        linear-gradient(#ffffff05 1px,transparent 1px),
-        linear-gradient(90deg,#ffffff05 1px,transparent 1px);
-    background-size:45px 45px;
-    mask-image:linear-gradient(to bottom,black,transparent);
-}
+.header{
 
-
-/* =========================
-   HEADER
-========================= */
-
-header{
-    position:sticky;
-    top:0;
-    z-index:1000;
-
-    height:76px;
+    height:75px;
 
     display:flex;
     align-items:center;
     justify-content:space-between;
 
-    padding:0 6%;
+    padding:0 35px;
 
-    background:rgba(5,6,17,.72);
-    backdrop-filter:blur(20px);
+    background:#111021;
 
-    border-bottom:1px solid rgba(255,255,255,.1);
+    border-bottom:1px solid #29273b;
 
-    box-shadow:
-        0 10px 40px #0008;
+    position:sticky;
+    top:0;
+
+    z-index:100;
 }
 
 .logo{
-    font-size:23px;
+
+    font-size:25px;
+
     font-weight:900;
+
     letter-spacing:1px;
 }
 
 .logo span{
-    color:#8d5cff;
+
+    color:#9c6cff;
 }
 
-.logo small{
-    display:block;
-    font-size:8px;
-    letter-spacing:3px;
-    color:#777;
-    margin-top:3px;
-}
+.nav{
 
-nav{
     display:flex;
-    gap:28px;
+
+    gap:25px;
 }
 
-nav a{
-    color:#aaa;
+.nav a{
+
+    color:#8b89a6;
+
     text-decoration:none;
+
     font-size:14px;
+
     font-weight:bold;
-    transition:.3s;
 }
 
-nav a:hover{
-    color:white;
-}
+.nav a:hover{
 
-
-/* =========================
-   HERO
-========================= */
-
-.hero{
-    min-height:500px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    text-align:center;
-
-    padding:90px 20px 70px;
-
-    position:relative;
-}
-
-.hero::before{
-    content:"";
-    position:absolute;
-
-    width:500px;
-    height:500px;
-
-    background:#6c2cff;
-    filter:blur(170px);
-    opacity:.2;
-
-    border-radius:50%;
-}
-
-.hero-content{
-    position:relative;
-    z-index:2;
-}
-
-.live{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-
-    padding:9px 17px;
-
-    border:1px solid #ff3155;
-    border-radius:50px;
-
-    background:#ff315512;
-
-    color:#ff5774;
-
-    font-size:12px;
-    font-weight:bold;
-
-    box-shadow:0 0 25px #ff174455;
-}
-
-.live-dot{
-    width:8px;
-    height:8px;
-    background:#ff3155;
-    border-radius:50%;
-
-    box-shadow:0 0 15px #ff3155;
-
-    animation:pulse 1s infinite;
-}
-
-@keyframes pulse{
-    50%{
-        opacity:.3;
-        transform:scale(.7);
-    }
-}
-
-.hero h1{
-    margin-top:25px;
-
-    font-size:clamp(42px,7vw,82px);
-
-    line-height:.95;
-
-    font-weight:1000;
-
-    letter-spacing:-4px;
-}
-
-.gradient{
-    background:linear-gradient(
-        90deg,
-        #8d5cff,
-        #00eaff,
-        #ff4fd8
-    );
-
-    -webkit-background-clip:text;
-    color:transparent;
-}
-
-.hero p{
-    color:#9295a9;
-    max-width:650px;
-    margin:25px auto;
-    line-height:1.7;
+    color:#fff;
 }
 
 
-/* =========================
-   SEARCH
-========================= */
-
-.search{
-    width:min(700px,94vw);
-
-    margin:35px auto 0;
-
-    display:flex;
-
-    padding:8px;
-
-    background:#ffffff0b;
-
-    border:1px solid #ffffff18;
-
-    border-radius:20px;
-
-    backdrop-filter:blur(20px);
-
-    box-shadow:
-        0 20px 60px #0007,
-        inset 0 1px #ffffff15;
-}
-
-.search input{
-    flex:1;
-
-    border:0;
-    outline:0;
-
-    background:transparent;
-
-    color:white;
-
-    padding:17px;
-
-    font-size:16px;
-}
-
-.search button{
-    border:0;
-
-    padding:0 25px;
-
-    border-radius:14px;
-
-    background:linear-gradient(
-        135deg,
-        #7d3cff,
-        #b13cff
-    );
-
-    color:white;
-
-    font-weight:900;
-
-    cursor:pointer;
-
-    box-shadow:0 0 25px #7d3cff55;
-}
-
-
-/* =========================
-   CONTAINER
-========================= */
+/* ==============================
+   ANA ALAN
+============================== */
 
 .container{
-    width:min(1400px,94%);
+
+    width:100%;
+
+    max-width:1500px;
+
     margin:auto;
 }
 
 
-/* =========================
-   SECTION
-========================= */
+/* ==============================
+   HERO
+============================== */
 
-.section{
-    padding:70px 0;
-}
+.hero{
 
-.section-head{
-    display:flex;
-    align-items:end;
-    justify-content:space-between;
-
-    margin-bottom:35px;
-}
-
-.section-head h2{
-    font-size:34px;
-}
-
-.section-head p{
-    color:#777b91;
-    margin-top:8px;
-}
-
-.section-label{
-    color:#9d72ff;
-    font-size:11px;
-    font-weight:900;
-    letter-spacing:3px;
-    margin-bottom:8px;
-}
-
-
-/* =========================
-   FILTER
-========================= */
-
-.filters{
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
-    margin-bottom:30px;
-}
-
-.filter{
-    padding:10px 18px;
-
-    border-radius:30px;
-
-    border:1px solid #ffffff12;
-
-    background:#ffffff07;
-
-    color:#999;
-
-    cursor:pointer;
-
-    font-weight:bold;
-}
-
-.filter.active{
-    background:#7d3cff;
-    color:white;
-    border-color:#9e73ff;
-    box-shadow:0 0 25px #7d3cff55;
-}
-
-
-/* =========================
-   CARD GRID
-========================= */
-
-.cards{
-    display:grid;
-
-    grid-template-columns:
-        repeat(auto-fit,minmax(250px,1fr));
-
-    gap:28px;
-}
-
-
-/* =========================
-   PLAYER CARD
-========================= */
-
-.card-wrap{
-    perspective:1200px;
-}
-
-.player-card{
-    position:relative;
-
-    height:390px;
-
-    border-radius:25px;
-
-    overflow:hidden;
-
-    transform-style:preserve-3d;
-
-    transition:
-        transform .18s ease,
-        box-shadow .3s;
-
-    cursor:pointer;
+    padding:55px 40px 35px;
 
     background:
-        linear-gradient(
-            145deg,
-            #23113f,
-            #0c0920 50%,
-            #15102e
-        );
 
-    border:1px solid #ffffff22;
+    radial-gradient(
+        circle at 20% 50%,
+        #612cff18,
+        transparent 35%
+    ),
 
-    box-shadow:
-        0 25px 70px #0009,
-        inset 0 1px #ffffff2b;
-}
-
-.player-card:hover{
-    box-shadow:
-        0 35px 100px #000,
-        0 0 45px var(--glow);
-}
-
-
-/* kart parlama */
-
-.player-card::before{
-    content:"";
-
-    position:absolute;
-
-    width:220px;
-    height:500px;
-
-    top:-100px;
-    left:-300px;
-
-    transform:rotate(25deg);
-
-    background:linear-gradient(
-        transparent,
-        #ffffff20,
-        transparent
+    radial-gradient(
+        circle at 80% 20%,
+        #00d9ff10,
+        transparent 30%
     );
-
-    transition:.7s;
 }
 
-.player-card:hover::before{
-    left:500px;
+.hero h1{
+
+    font-size:42px;
+
+    margin-bottom:12px;
 }
 
+.hero h1 span{
 
-/* OVR */
-
-.ovr{
-    position:absolute;
-
-    top:24px;
-    left:24px;
-
-    z-index:5;
-
-    text-align:center;
-
-    transform:translateZ(50px);
+    color:#9d6cff;
 }
 
-.ovr-number{
-    font-size:48px;
-    line-height:.8;
-    font-weight:1000;
-}
+.hero p{
 
-.ovr-text{
-    font-size:10px;
-    letter-spacing:2px;
-    color:#aaa;
-}
+    color:#77758e;
 
-
-/* POS */
-
-.position{
-    margin-top:10px;
-
-    font-size:12px;
-    font-weight:bold;
-
-    color:#c6a9ff;
-}
-
-
-/* PLAYER IMAGE */
-
-.player-image{
-    position:absolute;
-
-    right:0;
-    bottom:38px;
-
-    width:82%;
-
-    height:80%;
-
-    object-fit:contain;
-    object-position:bottom right;
-
-    filter:
-        drop-shadow(-15px 20px 20px #000);
-
-    transform:
-        translateZ(70px);
-
-    transition:.4s;
-}
-
-.player-card:hover .player-image{
-    transform:
-        translateZ(100px)
-        scale(1.05);
-}
-
-
-/* NAME */
-
-.player-name{
-    position:absolute;
-
-    left:24px;
-    right:24px;
-
-    bottom:103px;
-
-    z-index:5;
-
-    font-size:24px;
-
-    font-weight:1000;
-
-    text-transform:uppercase;
-
-    transform:translateZ(80px);
-
-    text-shadow:0 5px 20px #000;
-}
-
-
-/* CLUB */
-
-.club{
-    position:absolute;
-
-    left:24px;
-    bottom:77px;
-
-    z-index:5;
-
-    color:#a3a5b5;
-
-    font-size:11px;
-
-    transform:translateZ(70px);
-}
-
-
-/* STATS */
-
-.stats{
-    position:absolute;
-
-    bottom:0;
-    left:0;
-    right:0;
-
-    height:67px;
-
-    display:grid;
-    grid-template-columns:repeat(6,1fr);
-
-    padding:12px 15px;
-
-    background:#05040dcc;
-
-    backdrop-filter:blur(15px);
-
-    border-top:1px solid #ffffff13;
-
-    transform:translateZ(90px);
-}
-
-.stat{
-    text-align:center;
-
-    border-right:1px solid #ffffff0c;
-}
-
-.stat:last-child{
-    border:0;
-}
-
-.stat b{
-    display:block;
     font-size:15px;
 }
 
-.stat span{
-    display:block;
 
-    font-size:8px;
+/* ==============================
+   ARAMA
+============================== */
 
-    color:#777b8d;
+.search-area{
 
-    margin-top:3px;
+    margin-top:30px;
+
+    display:flex;
+
+    gap:10px;
+
+    max-width:850px;
 }
 
+.search{
 
-/* =========================
-   122 / 121 / 120
-========================= */
+    flex:1;
 
-.card-122{
-    --glow:#ffcc33;
+    background:#151426;
+
+    border:1px solid #302d46;
+
+    border-radius:8px;
+
+    padding:17px 20px;
+
+    color:#fff;
+
+    outline:none;
+
+    font-size:15px;
+}
+
+.search:focus{
+
+    border-color:#8d5cff;
+
+    box-shadow:
+        0 0 20px #8d5cff15;
+}
+
+.search-button{
+
+    border:none;
+
+    border-radius:8px;
+
+    padding:0 28px;
+
+    color:#fff;
+
+    font-weight:bold;
+
     background:
-        linear-gradient(145deg,#5b4011,#21170a 50%,#3c2607);
-    border-color:#e7bd4c55;
-}
 
-.card-122 .ovr-number{
-    color:#ffd65a;
-    text-shadow:0 0 25px #ffba0055;
-}
+    linear-gradient(
+        135deg,
+        #7041ff,
+        #a74dff
+    );
 
-.card-121{
-    --glow:#c66cff;
-    background:
-        linear-gradient(145deg,#381258,#130720 50%,#2b0b42);
-    border-color:#b766ff55;
-}
-
-.card-121 .ovr-number{
-    color:#d38aff;
-    text-shadow:0 0 25px #a020ff66;
-}
-
-.card-120{
-    --glow:#20e7ff;
-    background:
-        linear-gradient(145deg,#063d50,#061923 50%,#082d3d);
-    border-color:#20dfff55;
-}
-
-.card-120 .ovr-number{
-    color:#4deaff;
-    text-shadow:0 0 25px #00d9ff66;
+    cursor:pointer;
 }
 
 
-/* =========================
-   NEWS
-========================= */
+/* ==============================
+   FİLTRELER
+============================== */
 
-.news-grid{
+.filters{
+
+    display:flex;
+
+    gap:10px;
+
+    padding:20px 40px;
+
+    border-top:1px solid #252337;
+
+    border-bottom:1px solid #252337;
+
+    background:#0f0e1e;
+}
+
+.filter{
+
+    padding:10px 22px;
+
+    background:#181729;
+
+    border:1px solid #2c2941;
+
+    color:#89869f;
+
+    border-radius:7px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+    transition:.2s;
+}
+
+.filter:hover{
+
+    border-color:#8d5cff;
+
+    color:#fff;
+}
+
+.filter.active{
+
+    background:#794cff;
+
+    color:#fff;
+
+    border-color:#a77fff;
+
+    box-shadow:
+        0 0 20px #7546ff33;
+}
+
+
+/* ==============================
+   LİSTE BAŞLIĞI
+============================== */
+
+.list-header{
+
     display:grid;
 
     grid-template-columns:
-        repeat(auto-fit,minmax(280px,1fr));
+        390px
+        repeat(6,1fr);
 
-    gap:20px;
+    align-items:center;
+
+    min-height:65px;
+
+    padding:0 35px;
+
+    color:#5f5d77;
+
+    font-size:11px;
+
+    font-weight:bold;
+
+    letter-spacing:1px;
+
+    border-bottom:1px solid #29273b;
 }
 
-.news{
-    padding:28px;
+.list-header div:not(:first-child){
 
-    border-radius:22px;
+    text-align:center;
+}
+
+
+/* ==============================
+   OYUNCU SATIRI
+============================== */
+
+.player-row{
+
+    display:grid;
+
+    grid-template-columns:
+        390px
+        repeat(6,1fr);
+
+    min-height:245px;
+
+    align-items:center;
+
+    padding:0 35px;
+
+    border-bottom:1px solid #29273b;
+
+    background:#0f0e1d;
+
+    transition:
+
+        background .25s,
+        transform .25s;
+}
+
+.player-row:hover{
 
     background:
+
         linear-gradient(
-            145deg,
-            #ffffff0d,
-            #ffffff03
+            90deg,
+            #17152a,
+            #111020
         );
 
-    border:1px solid #ffffff12;
-
-    backdrop-filter:blur(20px);
-
-    transition:.3s;
-}
-
-.news:hover{
-    transform:translateY(-8px);
-
-    border-color:#8d5cff66;
-
-    box-shadow:0 20px 60px #0007;
-}
-
-.news-icon{
-    width:60px;
-    height:60px;
-
-    display:grid;
-    place-items:center;
-
-    border-radius:17px;
-
-    font-size:28px;
-
-    background:#8d5cff18;
-
-    margin-bottom:20px;
-}
-
-.news h3{
-    font-size:20px;
-    margin-bottom:10px;
-}
-
-.news p{
-    color:#85889a;
-    line-height:1.6;
+    box-shadow:
+        inset 4px 0 0 #8d5cff;
 }
 
 
-/* =========================
-   LIVE BAR
-========================= */
+/* ==============================
+   OYUNCU KART ALANI
+============================== */
 
-.live-bar{
-    display:grid;
+.player-info{
 
-    grid-template-columns:
-        repeat(4,1fr);
+    display:flex;
 
-    gap:15px;
+    align-items:center;
 
-    margin:20px 0 70px;
+    gap:18px;
 }
 
-.live-box{
-    padding:22px;
 
-    border-radius:20px;
+/* ==============================
+   KART
+============================== */
 
-    background:#ffffff08;
+.card-image{
 
-    border:1px solid #ffffff10;
+    width:180px;
 
-    backdrop-filter:blur(15px);
+    height:220px;
+
+    object-fit:contain;
+
+    filter:
+        drop-shadow(
+            0 15px 18px #000
+        );
+
+    transition:
+
+        transform .35s,
+        filter .35s;
 }
 
-.live-box small{
-    color:#777b8d;
-    display:block;
+.player-row:hover .card-image{
+
+    transform:
+
+        translateY(-5px)
+        scale(1.04);
+
+    filter:
+        drop-shadow(
+            0 20px 30px #000
+        );
+}
+
+
+/* ==============================
+   OYUNCU BİLGİSİ
+============================== */
+
+.player-details{
+
+    min-width:110px;
+}
+
+.player-name{
+
+    font-size:19px;
+
+    font-weight:900;
+
+    text-transform:uppercase;
+
     margin-bottom:8px;
 }
 
-.live-box strong{
-    font-size:25px;
+.player-meta{
+
+    color:#77758f;
+
+    font-size:12px;
+
+    line-height:1.7;
+}
+
+.ovr{
+
+    display:inline-block;
+
+    padding:5px 9px;
+
+    margin-top:10px;
+
+    border-radius:5px;
+
+    background:#7d4cff;
+
+    font-weight:900;
+
+    font-size:13px;
 }
 
 
-/* =========================
-   FOOTER
-========================= */
+/* ==============================
+   STAT
+============================== */
 
-footer{
-    margin-top:80px;
+.stat{
 
-    padding:60px 20px;
+    text-align:center;
+}
+
+.stat-number{
+
+    font-size:28px;
+
+    font-weight:400;
+
+    color:#f5f4fa;
+
+    line-height:1;
+}
+
+.stat-name{
+
+    margin-top:10px;
+
+    color:#696780;
+
+    font-size:15px;
+
+    font-weight:500;
+}
+
+
+/* ==============================
+   OVR RENKLERİ
+============================== */
+
+.ovr-122{
+
+    background:
+        linear-gradient(
+            135deg,
+            #d39a1e,
+            #ffcf50
+        );
+
+    color:#201300;
+}
+
+.ovr-121{
+
+    background:
+        linear-gradient(
+            135deg,
+            #8d4eff,
+            #d66aff
+        );
+}
+
+.ovr-120{
+
+    background:
+        linear-gradient(
+            135deg,
+            #159bc0,
+            #4ce8ff
+        );
+
+    color:#00151b;
+}
+
+
+/* ==============================
+   ALT BİLGİ
+============================== */
+
+.footer{
 
     text-align:center;
 
-    background:#03040b;
+    padding:50px;
 
-    border-top:1px solid #ffffff0d;
-}
+    color:#55536c;
 
-footer h2{
-    font-size:25px;
-}
+    border-top:1px solid #29273b;
 
-footer p{
-    margin-top:10px;
-    color:#65687b;
+    margin-top:50px;
 }
 
 
-/* =========================
-   MOBILE
-========================= */
+/* ==============================
+   MOBİL
+============================== */
 
-@media(max-width:800px){
+@media(max-width:900px){
 
-    header{
-        padding:0 20px;
+    .header{
+
+        padding:0 18px;
     }
 
-    nav{
+    .nav{
+
         display:none;
     }
 
     .hero{
-        min-height:470px;
+
+        padding:40px 20px;
     }
 
     .hero h1{
-        font-size:48px;
-        letter-spacing:-2px;
+
+        font-size:32px;
     }
 
-    .live-bar{
+    .filters{
+
+        padding:15px 20px;
+
+        overflow-x:auto;
+    }
+
+    .list-header{
+
+        display:none;
+    }
+
+    .player-row{
+
+        display:grid;
+
         grid-template-columns:
-            repeat(2,1fr);
+            180px
+            repeat(3,1fr);
+
+        padding:20px;
+
+        min-height:240px;
     }
 
-    .section-head{
-        display:block;
+    .player-info{
+
+        grid-row:span 2;
+
+        flex-direction:column;
+
+        align-items:flex-start;
     }
 
-    .player-card{
-        height:410px;
+    .card-image{
+
+        width:150px;
+
+        height:190px;
     }
+
+    .stat{
+
+        margin:15px 0;
+    }
+
+    .stat-number{
+
+        font-size:21px;
+    }
+
+    .stat-name{
+
+        font-size:11px;
+    }
+
 }
 
-@media(max-width:480px){
 
-    .hero h1{
-        font-size:42px;
+@media(max-width:550px){
+
+    .search-area{
+
+        flex-direction:column;
     }
 
-    .search button{
-        padding:0 15px;
+    .search-button{
+
+        height:50px;
     }
 
-    .live-bar{
-        grid-template-columns:1fr 1fr;
+    .player-row{
+
+        grid-template-columns:
+            145px
+            repeat(3,1fr);
+
+        padding:15px;
+
+        gap:5px;
     }
 
-    .cards{
-        grid-template-columns:1fr;
+    .card-image{
+
+        width:125px;
+
+        height:165px;
+    }
+
+    .player-name{
+
+        font-size:14px;
+    }
+
+    .player-details{
+
+        min-width:80px;
+    }
+
+    .stat-number{
+
+        font-size:18px;
+    }
+
+    .stat-name{
+
+        font-size:9px;
     }
 
 }
@@ -854,60 +673,66 @@ footer p{
 <body>
 
 
-<!-- HEADER -->
+<!-- ==============================
+     HEADER
+============================== -->
 
-<header>
+<header class="header">
 
     <div class="logo">
-        ⚽ FC MOBILE <span>HUB</span>
-        <small>ULTIMATE PLAYER DATABASE</small>
+
+        ⚽ FC MOBILE
+        <span>DATABASE</span>
+
     </div>
 
-    <nav>
-        <a href="#players">Oyuncular</a>
-        <a href="#ratings">OVR</a>
-        <a href="#news">Haberler</a>
-        <a href="#future">Gelecek Kartlar</a>
+    <nav class="nav">
+
+        <a href="#">Oyuncular</a>
+        <a href="#">122 OVR</a>
+        <a href="#">121 OVR</a>
+        <a href="#">120 OVR</a>
+        <a href="#">Gelecek Kartlar</a>
+
     </nav>
 
 </header>
 
 
 
-<!-- HERO -->
+<!-- ==============================
+     HERO
+============================== -->
 
 <section class="hero">
 
-    <div class="hero-content">
-
-        <div class="live">
-            <span class="live-dot"></span>
-            FC MOBILE CANLI VERİ MERKEZİ
-        </div>
+    <div class="container">
 
         <h1>
-            FC MOBILE
-            <br>
-            <span class="gradient">PLAYER HUB</span>
+            FC Mobile
+            <span>Oyuncu Veritabanı</span>
         </h1>
 
         <p>
-            Dünyanın futbolcularını keşfet.
-            OVR seviyelerini, istatistiklerini,
-            yeni kartları ve gelecek oyuncuları takip et.
+            Oyuncuları ara, kartlarını incele ve
+            tüm istatistiklerini görüntüle.
         </p>
 
 
-        <div class="search">
+        <div class="search-area">
 
             <input
                 id="search"
+                class="search"
                 type="text"
-                placeholder="🔎 Oyuncu ara... Mbappé, Haaland, Messi..."
-                onkeyup="searchPlayer()"
+                placeholder="🔎 Oyuncu adı ara..."
+                oninput="searchPlayers()"
             >
 
-            <button onclick="searchPlayer()">
+            <button
+                class="search-button"
+                onclick="searchPlayers()"
+            >
                 ARA
             </button>
 
@@ -919,338 +744,670 @@ footer p{
 
 
 
-<!-- CANLI BİLGİ -->
+<!-- ==============================
+     FİLTRELER
+============================== -->
 
-<div class="container">
+<div class="filters">
 
-<section class="live-bar">
+    <button
+        class="filter active"
+        onclick="filterPlayers('all',this)"
+    >
+        TÜMÜ
+    </button>
 
-    <div class="live-box">
-        <small>TOPLAM OYUNCU</small>
-        <strong>31K+</strong>
-    </div>
+    <button
+        class="filter"
+        onclick="filterPlayers('122',this)"
+    >
+        122 OVR
+    </button>
 
-    <div class="live-box">
-        <small>122 OVR</small>
-        <strong>12</strong>
-    </div>
+    <button
+        class="filter"
+        onclick="filterPlayers('121',this)"
+    >
+        121 OVR
+    </button>
 
-    <div class="live-box">
-        <small>121 OVR</small>
-        <strong>24</strong>
-    </div>
+    <button
+        class="filter"
+        onclick="filterPlayers('120',this)"
+    >
+        120 OVR
+    </button>
 
-    <div class="live-box">
-        <small>120 OVR</small>
-        <strong>48</strong>
-    </div>
-
-</section>
-
-
-<!-- OYUNCULAR -->
-
-<section class="section" id="players">
-
-    <div class="section-head">
-
-        <div>
-
-            <div class="section-label">
-                ELITE PLAYERS
-            </div>
-
-            <h2>🔥 En Yüksek OVR</h2>
-
-            <p>
-                FC Mobile'ın üst seviye kartları
-            </p>
-
-        </div>
-
-    </div>
+</div>
 
 
-    <div class="filters">
 
-        <button class="filter active"
-                onclick="filterCards(122,this)">
-            122 OVR
-        </button>
+<!-- ==============================
+     LİSTE
+============================== -->
 
-        <button class="filter"
-                onclick="filterCards(121,this)">
-            121 OVR
-        </button>
+<main class="container">
 
-        <button class="filter"
-                onclick="filterCards(120,this)">
-            120 OVR
-        </button>
 
-        <button class="filter"
-                onclick="filterCards('all',this)">
-            TÜMÜ
-        </button>
+    <!-- BAŞLIKLAR -->
+
+    <div class="list-header">
+
+        <div>OYUNCU</div>
+
+        <div>HIZ</div>
+
+        <div>ŞUT</div>
+
+        <div>PAS</div>
+
+        <div>DRİ</div>
+
+        <div>DEF</div>
+
+        <div>FİZ</div>
 
     </div>
 
 
-    <div class="cards" id="playerCards">
 
+    <!-- ==========================
+         VIEIRA
+    =========================== -->
 
-        <!-- MBAPPE 122 -->
+    <div
+        class="player-row"
+        data-ovr="122"
+        data-name="Vieira"
+    >
 
-        <div class="card-wrap"
-             data-ovr="122"
-             data-name="Kylian Mbappe">
+        <div class="player-info">
 
-            <div class="player-card card-122">
+            <img
+                class="card-image"
+                src="https://renderz.app/static/cards/players/medium/520001.webp"
+                onerror="this.src='https://placehold.co/180x220/17152a/ffffff?text=122+VIEIRA'"
+                alt="Vieira FC Mobile kartı"
+            >
 
-                <div class="ovr">
-
-                    <div class="ovr-number">
-                        122
-                    </div>
-
-                    <div class="ovr-text">
-                        OVR
-                    </div>
-
-                    <div class="position">
-                        ST
-                    </div>
-
-                </div>
-
-
-                <img
-                    class="player-image"
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Kylian_Mbappe_2018.jpg/800px-Kylian_Mbappe_2018.jpg"
-                    alt="Kylian Mbappe"
-                >
-
+            <div class="player-details">
 
                 <div class="player-name">
-                    MBAPPÉ
+                    Vieira
                 </div>
 
-                <div class="club">
-                    🇫🇷 FRANCE • ST
-                </div>
+                <div class="player-meta">
 
-
-                <div class="stats">
-
-                    <div class="stat">
-                        <b>99</b>
-                        <span>PAC</span>
-                    </div>
-
-                    <div class="stat">
-                        <b>98</b>
-                        <span>SHO</span>
-                    </div>
-
-                    <div class="stat">
-                        <b>95</b>
-                        <span>PAS</span>
-                    </div>
-
-                    <div class="stat">
-                        <b>99</b>
-                        <span>DRI</span>
-                    </div>
-
-                    <div class="stat">
-                        <b>45</b>
-                        <span>DEF</span>
-                    </div>
-
-                    <div class="stat">
-                        <b>88</b>
-                        <span>PHY</span>
-                    </div>
+                    🇫🇷 Fransa<br>
+                    MDO<br>
+                    Prime Icon
 
                 </div>
+
+                <span class="ovr ovr-122">
+                    122 OVR
+                </span>
 
             </div>
 
         </div>
 
 
+        <div class="stat">
 
-        <!-- HAALAND 122 -->
+            <div class="stat-number">
+                150
+            </div>
 
-        <div class="card-wrap"
-             data-ovr="122"
-             data-name="Erling Haaland">
+            <div class="stat-name">
+                HIZ
+            </div>
 
-            <div class="player-card card-122">
-
-                <div class="ovr">
-
-                    <div class="ovr-number">
-                        122
-                    </div>
-
-                    <div class="ovr-text">
-                        OVR
-                    </div>
-
-                    <div class="position">
-                        ST
-                    </div>
-
-                </div>
+        </div>
 
 
-                <img
-                    class="player-image"
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Erling_Haaland_2023.jpg/800px-Erling_Haaland_2023.jpg"
-                    alt="Erling Haaland"
-                >
+        <div class="stat">
 
+            <div class="stat-number">
+                132
+            </div>
+
+            <div class="stat-name">
+                ŞUT
+            </div>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-number">
+                146
+            </div>
+
+            <div class="stat-name">
+                PAS
+            </div>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-number">
+                146
+            </div>
+
+            <div class="stat-name">
+                DRİ
+            </div>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-number">
+                150
+            </div>
+
+            <div class="stat-name">
+                DEF
+            </div>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-number">
+                151
+            </div>
+
+            <div class="stat-name">
+                FİZ
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==========================
+         AGUERO
+    =========================== -->
+
+    <div
+        class="player-row"
+        data-ovr="122"
+        data-name="Aguero"
+    >
+
+        <div class="player-info">
+
+            <img
+                class="card-image"
+                src="https://renderz.app/static/cards/players/medium/520002.webp"
+                onerror="this.src='https://placehold.co/180x220/17152a/ffffff?text=122+AGUERO'"
+                alt="Aguero FC Mobile kartı"
+            >
+
+            <div class="player-details">
 
                 <div class="player-name">
-                    HAALAND
+                    Agüero
                 </div>
 
-                <div class="club">
-                    🇳🇴 NORWAY • ST
-                </div>
+                <div class="player-meta">
 
-
-                <div class="stats">
-
-                    <div class="stat">
-                        <b>97</b>
-                        <span>PAC</span>
-                    </div>
-
-                    <div class="stat">
-                        <b>99</b>
-                        <span>SHO</span>
-                    </div>
-
-                    <div class="stat">
-                        <b>89</b>
-                        <span>PAS</span>
-                    </div>
-
-                    <div class="stat">
-                        <b>92</b>
-                        <span>DRI</span>
-                    </div>
-
-                    <div class="stat">
-                        <b>48</b>
-                        <span>DEF</span>
-                    </div>
-
-                    <div class="stat">
-                        <b>99</b>
-                        <span>PHY</span>
-                    </div>
+                    🇦🇷 Arjantin<br>
+                    SNT<br>
+                    Icon
 
                 </div>
+
+                <span class="ovr ovr-122">
+                    122 OVR
+                </span>
 
             </div>
 
         </div>
 
 
+        <div class="stat">
 
-        <!-- VINICIUS 121 -->
+            <div class="stat-number">
+                157
+            </div>
 
-        <div class="card-wrap"
-             data-ovr="121"
-             data-name="Vinicius Junior">
+            <div class="stat-name">
+                HIZ
+            </div>
 
-            <div class="player-card card-121">
-
-                <div class="ovr">
-
-                    <div class="ovr-number">
-                        121
-                    </div>
-
-                    <div class="ovr-text">
-                        OVR
-                    </div>
-
-                    <div class="position">
-                        LW
-                    </div>
-
-                </div>
+        </div>
 
 
-                <img
-                    class="player-image"
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Vinicius_Junior_2022.jpg/800px-Vinicius_Junior_2022.jpg"
-                    alt="Vinicius Junior"
-                >
+        <div class="stat">
 
+            <div class="stat-number">
+                155
+            </div>
+
+            <div class="stat-name">
+                ŞUT
+            </div>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-number">
+                133
+            </div>
+
+            <div class="stat-name">
+                PAS
+            </div>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-number">
+                154
+            </div>
+
+            <div class="stat-name">
+                DRİ
+            </div>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-number">
+                87
+            </div>
+
+            <div class="stat-name">
+                DEF
+            </div>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-number">
+                137
+            </div>
+
+            <div class="stat-name">
+                FİZ
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==========================
+         121 OVR ÖRNEK
+    =========================== -->
+
+    <div
+        class="player-row"
+        data-ovr="121"
+        data-name="Mbappe"
+    >
+
+        <div class="player-info">
+
+            <img
+                class="card-image"
+                src="https://renderz.app/static/cards/players/medium/520003.webp"
+                onerror="this.src='https://placehold.co/180x220/17152a/ffffff?text=121+MBAPPE'"
+                alt="Mbappe FC Mobile kartı"
+            >
+
+            <div class="player-details">
 
                 <div class="player-name">
-                    VINÍCIUS JR
+                    Mbappé
                 </div>
 
-                <div class="club">
-                    🇧🇷 BRAZIL • LW
-                </div>
+                <div class="player-meta">
 
-
-                <div class="stats">
-
-                    <div class="stat">
-                        <b>99</b>
-                        <span>PAC</span>
-                    </div>
-
-                    <div class="stat">
-                        <b>94</b>
-                        <span>SHO</span>
-                    </div>
-
-                    <div class="stat">
-                        <b>91</b>
-                        <span>PAS</span>
-                    </div>
-
-                    <div class="stat">
-                        <b>99</b>
-                        <span>DRI</span>
-                    </div>
-
-                    <div class="stat">
-                        <b>38</b>
-                        <span>DEF</span>
-                    </div>
-
-                    <div class="stat">
-                        <b>79</b>
-                        <span>PHY</span>
-                    </div>
+                    🇫🇷 Fransa<br>
+                    SNT<br>
+                    TOTY
 
                 </div>
+
+                <span class="ovr ovr-121">
+                    121 OVR
+                </span>
 
             </div>
 
         </div>
 
 
+        <div class="stat">
 
-        <!-- BELLINGHAM 121 -->
+            <div class="stat-number">
+                162
+            </div>
 
-        <div class="card-wrap"
-             data-ovr="121"
-             data-name="Jude Bellingham">
+            <div class="stat-name">
+                HIZ
+            </div>
 
-            <div class="player-card card-121">
+        </div>
 
-                <div class="ovr">
 
-                    <div class="ovr-number">
-           
+        <div class="stat">
+
+            <div class="stat-number">
+                156
+            </div>
+
+            <div class="stat-name">
+                ŞUT
+            </div>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-number">
+                141
+            </div>
+
+            <div class="stat-name">
+                PAS
+            </div>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-number">
+                159
+            </div>
+
+            <div class="stat-name">
+                DRİ
+            </div>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-number">
+                70
+            </div>
+
+            <div class="stat-name">
+                DEF
+            </div>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-number">
+                110
+            </div>
+
+            <div class="stat-name">
+                FİZ
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==========================
+         120 OVR ÖRNEK
+    =========================== -->
+
+    <div
+        class="player-row"
+        data-ovr="120"
+        data-name="Haaland"
+    >
+
+        <div class="player-info">
+
+            <img
+                class="card-image"
+                src="https://renderz.app/static/cards/players/medium/520004.webp"
+                onerror="this.src='https://placehold.co/180x220/17152a/ffffff?text=120+HAALAND'"
+                alt="Haaland FC Mobile kartı"
+            >
+
+            <div class="player-details">
+
+                <div class="player-name">
+                    Haaland
+                </div>
+
+                <div class="player-meta">
+
+                    🇳🇴 Norveç<br>
+                    SNT<br>
+                    Event
+
+                </div>
+
+                <span class="ovr ovr-120">
+                    120 OVR
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-number">
+                154
+            </div>
+
+            <div class="stat-name">
+                HIZ
+            </div>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-number">
+                160
+            </div>
+
+            <div class="stat-name">
+                ŞUT
+            </div>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-number">
+                125
+            </div>
+
+            <div class="stat-name">
+                PAS
+            </div>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-number">
+                139
+            </div>
+
+            <div class="stat-name">
+                DRİ
+            </div>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-number">
+                65
+            </div>
+
+            <div class="stat-name">
+                DEF
+            </div>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-number">
+                155
+            </div>
+
+            <div class="stat-name">
+                FİZ
+            </div>
+
+        </div>
+
+    </div>
+
+
+</main>
+
+
+
+<footer class="footer">
+
+    ⚽ FC MOBILE DATABASE
+
+    <br><br>
+
+    <small>
+        Oyuncu istatistikleri ve kart veritabanı
+    </small>
+
+</footer>
+
+
+
+<script>
+
+
+/* ==============================
+   OVR FİLTRE
+============================== */
+
+function filterPlayers(ovr,button){
+
+    document
+        .querySelectorAll(".filter")
+        .forEach(btn => {
+            btn.classList.remove("active");
+        });
+
+    button.classList.add("active");
+
+
+    document
+        .querySelectorAll(".player-row")
+        .forEach(player => {
+
+            if(ovr === "all"){
+
+                player.style.display =
+                    "grid";
+
+            }
+            else{
+
+                player.style.display =
+                    player.dataset.ovr === ovr
+                    ? "grid"
+                    : "none";
+
+            }
+
+        });
+
+}
+
+
+/* ==============================
+   ARAMA
+============================== */
+
+function searchPlayers(){
+
+    const value =
+        document
+        .getElementById("search")
+        .value
+        .toLowerCase()
+        .trim();
+
+
+    document
+        .querySelectorAll(".player-row")
+        .forEach(player => {
+
+            const name =
+                player
+                .dataset
+                .name
+                .toLowerCase();
+
+
+            if(
+                value === "" ||
+                name.includes(value)
+            ){
+
+                player.style.display =
+                    "grid";
+
+            }
+            else{
+
+                player.style.display =
+                    "none";
+
+            }
+
+        });
+
+}
+
+</script>
+
+</body>
+</html>
