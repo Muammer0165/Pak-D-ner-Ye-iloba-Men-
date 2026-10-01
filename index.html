@@ -487,4 +487,770 @@ nav a:hover{
 .position{
     margin-top:10px;
 
-    font-size:12
+    font-size:12px;
+    font-weight:bold;
+
+    color:#c6a9ff;
+}
+
+
+/* PLAYER IMAGE */
+
+.player-image{
+    position:absolute;
+
+    right:0;
+    bottom:38px;
+
+    width:82%;
+
+    height:80%;
+
+    object-fit:contain;
+    object-position:bottom right;
+
+    filter:
+        drop-shadow(-15px 20px 20px #000);
+
+    transform:
+        translateZ(70px);
+
+    transition:.4s;
+}
+
+.player-card:hover .player-image{
+    transform:
+        translateZ(100px)
+        scale(1.05);
+}
+
+
+/* NAME */
+
+.player-name{
+    position:absolute;
+
+    left:24px;
+    right:24px;
+
+    bottom:103px;
+
+    z-index:5;
+
+    font-size:24px;
+
+    font-weight:1000;
+
+    text-transform:uppercase;
+
+    transform:translateZ(80px);
+
+    text-shadow:0 5px 20px #000;
+}
+
+
+/* CLUB */
+
+.club{
+    position:absolute;
+
+    left:24px;
+    bottom:77px;
+
+    z-index:5;
+
+    color:#a3a5b5;
+
+    font-size:11px;
+
+    transform:translateZ(70px);
+}
+
+
+/* STATS */
+
+.stats{
+    position:absolute;
+
+    bottom:0;
+    left:0;
+    right:0;
+
+    height:67px;
+
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+
+    padding:12px 15px;
+
+    background:#05040dcc;
+
+    backdrop-filter:blur(15px);
+
+    border-top:1px solid #ffffff13;
+
+    transform:translateZ(90px);
+}
+
+.stat{
+    text-align:center;
+
+    border-right:1px solid #ffffff0c;
+}
+
+.stat:last-child{
+    border:0;
+}
+
+.stat b{
+    display:block;
+    font-size:15px;
+}
+
+.stat span{
+    display:block;
+
+    font-size:8px;
+
+    color:#777b8d;
+
+    margin-top:3px;
+}
+
+
+/* =========================
+   122 / 121 / 120
+========================= */
+
+.card-122{
+    --glow:#ffcc33;
+    background:
+        linear-gradient(145deg,#5b4011,#21170a 50%,#3c2607);
+    border-color:#e7bd4c55;
+}
+
+.card-122 .ovr-number{
+    color:#ffd65a;
+    text-shadow:0 0 25px #ffba0055;
+}
+
+.card-121{
+    --glow:#c66cff;
+    background:
+        linear-gradient(145deg,#381258,#130720 50%,#2b0b42);
+    border-color:#b766ff55;
+}
+
+.card-121 .ovr-number{
+    color:#d38aff;
+    text-shadow:0 0 25px #a020ff66;
+}
+
+.card-120{
+    --glow:#20e7ff;
+    background:
+        linear-gradient(145deg,#063d50,#061923 50%,#082d3d);
+    border-color:#20dfff55;
+}
+
+.card-120 .ovr-number{
+    color:#4deaff;
+    text-shadow:0 0 25px #00d9ff66;
+}
+
+
+/* =========================
+   NEWS
+========================= */
+
+.news-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(auto-fit,minmax(280px,1fr));
+
+    gap:20px;
+}
+
+.news{
+    padding:28px;
+
+    border-radius:22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff0d,
+            #ffffff03
+        );
+
+    border:1px solid #ffffff12;
+
+    backdrop-filter:blur(20px);
+
+    transition:.3s;
+}
+
+.news:hover{
+    transform:translateY(-8px);
+
+    border-color:#8d5cff66;
+
+    box-shadow:0 20px 60px #0007;
+}
+
+.news-icon{
+    width:60px;
+    height:60px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:17px;
+
+    font-size:28px;
+
+    background:#8d5cff18;
+
+    margin-bottom:20px;
+}
+
+.news h3{
+    font-size:20px;
+    margin-bottom:10px;
+}
+
+.news p{
+    color:#85889a;
+    line-height:1.6;
+}
+
+
+/* =========================
+   LIVE BAR
+========================= */
+
+.live-bar{
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:15px;
+
+    margin:20px 0 70px;
+}
+
+.live-box{
+    padding:22px;
+
+    border-radius:20px;
+
+    background:#ffffff08;
+
+    border:1px solid #ffffff10;
+
+    backdrop-filter:blur(15px);
+}
+
+.live-box small{
+    color:#777b8d;
+    display:block;
+    margin-bottom:8px;
+}
+
+.live-box strong{
+    font-size:25px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    margin-top:80px;
+
+    padding:60px 20px;
+
+    text-align:center;
+
+    background:#03040b;
+
+    border-top:1px solid #ffffff0d;
+}
+
+footer h2{
+    font-size:25px;
+}
+
+footer p{
+    margin-top:10px;
+    color:#65687b;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:800px){
+
+    header{
+        padding:0 20px;
+    }
+
+    nav{
+        display:none;
+    }
+
+    .hero{
+        min-height:470px;
+    }
+
+    .hero h1{
+        font-size:48px;
+        letter-spacing:-2px;
+    }
+
+    .live-bar{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .section-head{
+        display:block;
+    }
+
+    .player-card{
+        height:410px;
+    }
+}
+
+@media(max-width:480px){
+
+    .hero h1{
+        font-size:42px;
+    }
+
+    .search button{
+        padding:0 15px;
+    }
+
+    .live-bar{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- HEADER -->
+
+<header>
+
+    <div class="logo">
+        ⚽ FC MOBILE <span>HUB</span>
+        <small>ULTIMATE PLAYER DATABASE</small>
+    </div>
+
+    <nav>
+        <a href="#players">Oyuncular</a>
+        <a href="#ratings">OVR</a>
+        <a href="#news">Haberler</a>
+        <a href="#future">Gelecek Kartlar</a>
+    </nav>
+
+</header>
+
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="live">
+            <span class="live-dot"></span>
+            FC MOBILE CANLI VERİ MERKEZİ
+        </div>
+
+        <h1>
+            FC MOBILE
+            <br>
+            <span class="gradient">PLAYER HUB</span>
+        </h1>
+
+        <p>
+            Dünyanın futbolcularını keşfet.
+            OVR seviyelerini, istatistiklerini,
+            yeni kartları ve gelecek oyuncuları takip et.
+        </p>
+
+
+        <div class="search">
+
+            <input
+                id="search"
+                type="text"
+                placeholder="🔎 Oyuncu ara... Mbappé, Haaland, Messi..."
+                onkeyup="searchPlayer()"
+            >
+
+            <button onclick="searchPlayer()">
+                ARA
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- CANLI BİLGİ -->
+
+<div class="container">
+
+<section class="live-bar">
+
+    <div class="live-box">
+        <small>TOPLAM OYUNCU</small>
+        <strong>31K+</strong>
+    </div>
+
+    <div class="live-box">
+        <small>122 OVR</small>
+        <strong>12</strong>
+    </div>
+
+    <div class="live-box">
+        <small>121 OVR</small>
+        <strong>24</strong>
+    </div>
+
+    <div class="live-box">
+        <small>120 OVR</small>
+        <strong>48</strong>
+    </div>
+
+</section>
+
+
+<!-- OYUNCULAR -->
+
+<section class="section" id="players">
+
+    <div class="section-head">
+
+        <div>
+
+            <div class="section-label">
+                ELITE PLAYERS
+            </div>
+
+            <h2>🔥 En Yüksek OVR</h2>
+
+            <p>
+                FC Mobile'ın üst seviye kartları
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="filters">
+
+        <button class="filter active"
+                onclick="filterCards(122,this)">
+            122 OVR
+        </button>
+
+        <button class="filter"
+                onclick="filterCards(121,this)">
+            121 OVR
+        </button>
+
+        <button class="filter"
+                onclick="filterCards(120,this)">
+            120 OVR
+        </button>
+
+        <button class="filter"
+                onclick="filterCards('all',this)">
+            TÜMÜ
+        </button>
+
+    </div>
+
+
+    <div class="cards" id="playerCards">
+
+
+        <!-- MBAPPE 122 -->
+
+        <div class="card-wrap"
+             data-ovr="122"
+             data-name="Kylian Mbappe">
+
+            <div class="player-card card-122">
+
+                <div class="ovr">
+
+                    <div class="ovr-number">
+                        122
+                    </div>
+
+                    <div class="ovr-text">
+                        OVR
+                    </div>
+
+                    <div class="position">
+                        ST
+                    </div>
+
+                </div>
+
+
+                <img
+                    class="player-image"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Kylian_Mbappe_2018.jpg/800px-Kylian_Mbappe_2018.jpg"
+                    alt="Kylian Mbappe"
+                >
+
+
+                <div class="player-name">
+                    MBAPPÉ
+                </div>
+
+                <div class="club">
+                    🇫🇷 FRANCE • ST
+                </div>
+
+
+                <div class="stats">
+
+                    <div class="stat">
+                        <b>99</b>
+                        <span>PAC</span>
+                    </div>
+
+                    <div class="stat">
+                        <b>98</b>
+                        <span>SHO</span>
+                    </div>
+
+                    <div class="stat">
+                        <b>95</b>
+                        <span>PAS</span>
+                    </div>
+
+                    <div class="stat">
+                        <b>99</b>
+                        <span>DRI</span>
+                    </div>
+
+                    <div class="stat">
+                        <b>45</b>
+                        <span>DEF</span>
+                    </div>
+
+                    <div class="stat">
+                        <b>88</b>
+                        <span>PHY</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- HAALAND 122 -->
+
+        <div class="card-wrap"
+             data-ovr="122"
+             data-name="Erling Haaland">
+
+            <div class="player-card card-122">
+
+                <div class="ovr">
+
+                    <div class="ovr-number">
+                        122
+                    </div>
+
+                    <div class="ovr-text">
+                        OVR
+                    </div>
+
+                    <div class="position">
+                        ST
+                    </div>
+
+                </div>
+
+
+                <img
+                    class="player-image"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Erling_Haaland_2023.jpg/800px-Erling_Haaland_2023.jpg"
+                    alt="Erling Haaland"
+                >
+
+
+                <div class="player-name">
+                    HAALAND
+                </div>
+
+                <div class="club">
+                    🇳🇴 NORWAY • ST
+                </div>
+
+
+                <div class="stats">
+
+                    <div class="stat">
+                        <b>97</b>
+                        <span>PAC</span>
+                    </div>
+
+                    <div class="stat">
+                        <b>99</b>
+                        <span>SHO</span>
+                    </div>
+
+                    <div class="stat">
+                        <b>89</b>
+                        <span>PAS</span>
+                    </div>
+
+                    <div class="stat">
+                        <b>92</b>
+                        <span>DRI</span>
+                    </div>
+
+                    <div class="stat">
+                        <b>48</b>
+                        <span>DEF</span>
+                    </div>
+
+                    <div class="stat">
+                        <b>99</b>
+                        <span>PHY</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- VINICIUS 121 -->
+
+        <div class="card-wrap"
+             data-ovr="121"
+             data-name="Vinicius Junior">
+
+            <div class="player-card card-121">
+
+                <div class="ovr">
+
+                    <div class="ovr-number">
+                        121
+                    </div>
+
+                    <div class="ovr-text">
+                        OVR
+                    </div>
+
+                    <div class="position">
+                        LW
+                    </div>
+
+                </div>
+
+
+                <img
+                    class="player-image"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Vinicius_Junior_2022.jpg/800px-Vinicius_Junior_2022.jpg"
+                    alt="Vinicius Junior"
+                >
+
+
+                <div class="player-name">
+                    VINÍCIUS JR
+                </div>
+
+                <div class="club">
+                    🇧🇷 BRAZIL • LW
+                </div>
+
+
+                <div class="stats">
+
+                    <div class="stat">
+                        <b>99</b>
+                        <span>PAC</span>
+                    </div>
+
+                    <div class="stat">
+                        <b>94</b>
+                        <span>SHO</span>
+                    </div>
+
+                    <div class="stat">
+                        <b>91</b>
+                        <span>PAS</span>
+                    </div>
+
+                    <div class="stat">
+                        <b>99</b>
+                        <span>DRI</span>
+                    </div>
+
+                    <div class="stat">
+                        <b>38</b>
+                        <span>DEF</span>
+                    </div>
+
+                    <div class="stat">
+                        <b>79</b>
+                        <span>PHY</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- BELLINGHAM 121 -->
+
+        <div class="card-wrap"
+             data-ovr="121"
+             data-name="Jude Bellingham">
+
+            <div class="player-card card-121">
+
+                <div class="ovr">
+
+                    <div class="ovr-number">
+           
