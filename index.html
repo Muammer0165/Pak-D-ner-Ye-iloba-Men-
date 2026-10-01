@@ -1,499 +1,490 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>FC MOBILE 3D HUB</title>
+
+<style>
+
+/* =========================
+   TEMEL
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:
+        radial-gradient(circle at 10% 10%,#4c00ff44,transparent 30%),
+        radial-gradient(circle at 90% 20%,#00eaff33,transparent 30%),
+        radial-gradient(circle at 50% 100%,#ff006633,transparent 35%),
+        #050611;
+    color:white;
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+
+/* =========================
+   ARKA PLAN
+========================= */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    background-image:
+        linear-gradient(#ffffff05 1px,transparent 1px),
+        linear-gradient(90deg,#ffffff05 1px,transparent 1px);
+    background-size:45px 45px;
+    mask-image:linear-gradient(to bottom,black,transparent);
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    height:76px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 
-    <title>FC Mobile Hub 🇹🇷</title>
+    padding:0 6%;
 
-    <meta name="description"
-          content="FC Mobile oyuncuları, OVR, istatistikler, yeni kartlar, gelecek oyuncular ve FC Mobile haberleri.">
+    background:rgba(5,6,17,.72);
+    backdrop-filter:blur(20px);
 
-    <link rel="stylesheet" href="style.css">
-</head>
+    border-bottom:1px solid rgba(255,255,255,.1);
 
-<body>
+    box-shadow:
+        0 10px 40px #0008;
+}
 
-    <!-- ÜST MENÜ -->
-    <header class="header">
+.logo{
+    font-size:23px;
+    font-weight:900;
+    letter-spacing:1px;
+}
 
-        <div class="logo">
-            ⚽ FC MOBILE <span>HUB</span>
-        </div>
+.logo span{
+    color:#8d5cff;
+}
 
-        <nav>
-            <a href="#home">Ana Sayfa</a>
-            <a href="#players">Oyuncular</a>
-            <a href="#news">Haberler</a>
-            <a href="#future">Gelecek Kartlar</a>
-        </nav>
+.logo small{
+    display:block;
+    font-size:8px;
+    letter-spacing:3px;
+    color:#777;
+    margin-top:3px;
+}
 
-    </header>
+nav{
+    display:flex;
+    gap:28px;
+}
 
+nav a{
+    color:#aaa;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:bold;
+    transition:.3s;
+}
 
-    <!-- ANA ALAN -->
-    <main id="home">
+nav a:hover{
+    color:white;
+}
 
-        <section class="hero">
 
-            <div class="hero-content">
+/* =========================
+   HERO
+========================= */
 
-                <div class="badge">
-                    🔴 CANLI FC MOBILE
-                </div>
+.hero{
+    min-height:500px;
 
-                <h1>
-                    FC Mobile'ın<br>
-                    <span>Oyuncu Merkezi</span>
-                </h1>
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-                <p>
-                    Oyuncuları ara, istatistiklerini incele,
-                    yeni kartları ve gelecek oyuncuları takip et.
-                </p>
+    text-align:center;
 
-                <!-- ARAMA -->
-                <div class="search-box">
+    padding:90px 20px 70px;
 
-                    <span>🔎</span>
+    position:relative;
+}
 
-                    <input
-                        type="text"
-                        id="searchInput"
-                        placeholder="Oyuncu ara... Örn: Mbappe"
-                    >
+.hero::before{
+    content:"";
+    position:absolute;
 
-                    <button onclick="searchPlayer()">
-                        ARA
-                    </button>
+    width:500px;
+    height:500px;
 
-                </div>
+    background:#6c2cff;
+    filter:blur(170px);
+    opacity:.2;
 
-            </div>
+    border-radius:50%;
+}
 
-        </section>
+.hero-content{
+    position:relative;
+    z-index:2;
+}
 
+.live{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
 
-        <!-- HIZLI MENÜ -->
-        <section class="quick-menu">
+    padding:9px 17px;
 
-            <div class="quick-card" onclick="showSection('players')">
-                <div class="quick-icon">👤</div>
-                <h3>Oyuncular</h3>
-                <p>FC Mobile oyuncu veritabanı</p>
-            </div>
+    border:1px solid #ff3155;
+    border-radius:50px;
 
-            <div class="quick-card" onclick="showSection('news')">
-                <div class="quick-icon">📰</div>
-                <h3>Haberler</h3>
-                <p>Son FC Mobile haberleri</p>
-            </div>
+    background:#ff315512;
 
-            <div class="quick-card" onclick="showSection('future')">
-                <div class="quick-icon">🃏</div>
-                <h3>Yeni Kartlar</h3>
-                <p>Yeni ve gelecek kartlar</p>
-            </div>
+    color:#ff5774;
 
-            <div class="quick-card" onclick="showSection('leaks')">
-                <div class="quick-icon">🚨</div>
-                <h3>Sızıntılar</h3>
-                <p>Muhtemel gelecek oyuncular</p>
-            </div>
+    font-size:12px;
+    font-weight:bold;
 
-        </section>
+    box-shadow:0 0 25px #ff174455;
+}
 
+.live-dot{
+    width:8px;
+    height:8px;
+    background:#ff3155;
+    border-radius:50%;
 
-        <!-- CANLI DURUM -->
-        <section class="live-section">
+    box-shadow:0 0 15px #ff3155;
 
-            <div class="section-title">
+    animation:pulse 1s infinite;
+}
 
-                <div>
-                    <span class="live-dot"></span>
-                    <h2>CANLI FC MOBILE</h2>
-                </div>
+@keyframes pulse{
+    50%{
+        opacity:.3;
+        transform:scale(.7);
+    }
+}
 
-                <span class="update-time">
-                    Son güncelleme: <span id="updateTime">Şimdi</span>
-                </span>
+.hero h1{
+    margin-top:25px;
 
-            </div>
+    font-size:clamp(42px,7vw,82px);
 
+    line-height:.95;
 
-            <div class="live-grid">
+    font-weight:1000;
 
-                <div class="live-card">
+    letter-spacing:-4px;
+}
 
-                    <span class="live-card-icon">🔥</span>
+.gradient{
+    background:linear-gradient(
+        90deg,
+        #8d5cff,
+        #00eaff,
+        #ff4fd8
+    );
 
-                    <div>
-                        <small>YENİ KARTLAR</small>
-                        <strong id="newCardsCount">0</strong>
-                    </div>
+    -webkit-background-clip:text;
+    color:transparent;
+}
 
-                </div>
+.hero p{
+    color:#9295a9;
+    max-width:650px;
+    margin:25px auto;
+    line-height:1.7;
+}
 
 
-                <div class="live-card">
+/* =========================
+   SEARCH
+========================= */
 
-                    <span class="live-card-icon">⭐</span>
+.search{
+    width:min(700px,94vw);
 
-                    <div>
-                        <small>OYUNCULAR</small>
-                        <strong id="playersCount">0</strong>
-                    </div>
+    margin:35px auto 0;
 
-                </div>
+    display:flex;
 
+    padding:8px;
 
-                <div class="live-card">
+    background:#ffffff0b;
 
-                    <span class="live-card-icon">🚨</span>
+    border:1px solid #ffffff18;
 
-                    <div>
-                        <small>SIZINTILAR</small>
-                        <strong id="leaksCount">0</strong>
-                    </div>
+    border-radius:20px;
 
-                </div>
+    backdrop-filter:blur(20px);
 
+    box-shadow:
+        0 20px 60px #0007,
+        inset 0 1px #ffffff15;
+}
 
-                <div class="live-card">
+.search input{
+    flex:1;
 
-                    <span class="live-card-icon">🗓️</span>
+    border:0;
+    outline:0;
 
-                    <div>
-                        <small>GELECEK HAFTA</small>
-                        <strong>Yakında</strong>
-                    </div>
+    background:transparent;
 
-                </div>
+    color:white;
 
-            </div>
+    padding:17px;
 
-        </section>
+    font-size:16px;
+}
 
+.search button{
+    border:0;
 
-        <!-- OYUNCU ARAMA SONUÇLARI -->
-        <section id="players" class="content-section">
+    padding:0 25px;
 
-            <div class="section-heading">
+    border-radius:14px;
 
-                <div>
-                    <span class="section-label">DATABASE</span>
-                    <h2>👤 Oyuncu Veritabanı</h2>
-                </div>
+    background:linear-gradient(
+        135deg,
+        #7d3cff,
+        #b13cff
+    );
 
-                <button onclick="showAllPlayers()">
-                    TÜM OYUNCULAR
-                </button>
+    color:white;
 
-            </div>
+    font-weight:900;
 
+    cursor:pointer;
 
-            <div id="playerResults" class="player-grid">
+    box-shadow:0 0 25px #7d3cff55;
+}
 
-                <!-- JavaScript buraya oyuncuları ekleyecek -->
 
-                <div class="empty-card">
+/* =========================
+   CONTAINER
+========================= */
 
-                    <div>🔎</div>
+.container{
+    width:min(1400px,94%);
+    margin:auto;
+}
 
-                    <h3>Oyuncu ara</h3>
 
-                    <p>
-                        Yukarıdaki arama kutusundan
-                        bir futbolcu adı yaz.
-                    </p>
+/* =========================
+   SECTION
+========================= */
 
-                </div>
+.section{
+    padding:70px 0;
+}
 
-            </div>
+.section-head{
+    display:flex;
+    align-items:end;
+    justify-content:space-between;
 
-        </section>
+    margin-bottom:35px;
+}
 
+.section-head h2{
+    font-size:34px;
+}
 
-        <!-- YENİ KARTLAR -->
-        <section id="future" class="content-section">
+.section-head p{
+    color:#777b91;
+    margin-top:8px;
+}
 
-            <div class="section-heading">
+.section-label{
+    color:#9d72ff;
+    font-size:11px;
+    font-weight:900;
+    letter-spacing:3px;
+    margin-bottom:8px;
+}
 
-                <div>
-                    <span class="section-label">NEW CARDS</span>
-                    <h2>🃏 Yeni & Gelecek Kartlar</h2>
-                </div>
 
-                <span class="status">
-                    🔴 CANLI
-                </span>
+/* =========================
+   FILTER
+========================= */
 
-            </div>
+.filters{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:30px;
+}
 
+.filter{
+    padding:10px 18px;
 
-            <div id="futureCards" class="news-grid">
+    border-radius:30px;
 
-                <article class="news-card">
+    border:1px solid #ffffff12;
 
-                    <div class="news-image">
-                        🃏
-                    </div>
+    background:#ffffff07;
 
-                    <div class="news-content">
+    color:#999;
 
-                        <span class="news-tag">
-                            YAKINDA
-                        </span>
+    cursor:pointer;
 
-                        <h3>
-                            Yeni FC Mobile kartları
-                        </h3>
+    font-weight:bold;
+}
 
-                        <p>
-                            Yeni etkinliklerle birlikte
-                            gelecek oyuncular burada yayınlanacak.
-                        </p>
+.filter.active{
+    background:#7d3cff;
+    color:white;
+    border-color:#9e73ff;
+    box-shadow:0 0 25px #7d3cff55;
+}
 
-                        <span class="news-date">
-                            Güncelleme bekleniyor
-                        </span>
 
-                    </div>
+/* =========================
+   CARD GRID
+========================= */
 
-                </article>
+.cards{
+    display:grid;
 
+    grid-template-columns:
+        repeat(auto-fit,minmax(250px,1fr));
 
-                <article class="news-card">
+    gap:28px;
+}
 
-                    <div class="news-image">
-                        ⭐
-                    </div>
 
-                    <div class="news-content">
+/* =========================
+   PLAYER CARD
+========================= */
 
-                        <span class="news-tag">
-                            OYUNCULAR
-                        </span>
+.card-wrap{
+    perspective:1200px;
+}
 
-                        <h3>
-                            Yeni yüksek OVR oyuncular
-                        </h3>
+.player-card{
+    position:relative;
 
-                        <p>
-                            Gelecek yüksek OVR kartları
-                            burada listelenecek.
-                        </p>
+    height:390px;
 
-                        <span class="news-date">
-                            Güncelleme bekleniyor
-                        </span>
+    border-radius:25px;
 
-                    </div>
+    overflow:hidden;
 
-                </article>
+    transform-style:preserve-3d;
 
+    transition:
+        transform .18s ease,
+        box-shadow .3s;
 
-                <article class="news-card">
+    cursor:pointer;
 
-                    <div class="news-image">
-                        🚨
-                    </div>
+    background:
+        linear-gradient(
+            145deg,
+            #23113f,
+            #0c0920 50%,
+            #15102e
+        );
 
-                    <div class="news-content">
+    border:1px solid #ffffff22;
 
-                        <span class="news-tag">
-                            SIZINTI
-                        </span>
+    box-shadow:
+        0 25px 70px #0009,
+        inset 0 1px #ffffff2b;
+}
 
-                        <h3>
-                            Muhtemel gelecek oyuncular
-                        </h3>
+.player-card:hover{
+    box-shadow:
+        0 35px 100px #000,
+        0 0 45px var(--glow);
+}
 
-                        <p>
-                            Henüz resmi olmayan oyuncular
-                            ayrı olarak gösterilecek.
-                        </p>
 
-                        <span class="news-date">
-                            Kaynak doğrulaması gerekli
-                        </span>
+/* kart parlama */
 
-                    </div>
+.player-card::before{
+    content:"";
 
-                </article>
+    position:absolute;
 
-            </div>
+    width:220px;
+    height:500px;
 
-        </section>
+    top:-100px;
+    left:-300px;
 
+    transform:rotate(25deg);
 
-        <!-- HABERLER -->
-        <section id="news" class="content-section">
+    background:linear-gradient(
+        transparent,
+        #ffffff20,
+        transparent
+    );
 
-            <div class="section-heading">
+    transition:.7s;
+}
 
-                <div>
-                    <span class="section-label">LATEST NEWS</span>
-                    <h2>📰 FC Mobile Haberleri</h2>
-                </div>
+.player-card:hover::before{
+    left:500px;
+}
 
-            </div>
 
+/* OVR */
 
-            <div id="newsList" class="news-list">
+.ovr{
+    position:absolute;
 
-                <article class="news-item">
+    top:24px;
+    left:24px;
 
-                    <div class="news-number">
-                        01
-                    </div>
+    z-index:5;
 
-                    <div>
+    text-align:center;
 
-                        <span class="news-tag">
-                            FC MOBILE
-                        </span>
+    transform:translateZ(50px);
+}
 
-                        <h3>
-                            Yeni etkinlikler ve oyuncular
-                        </h3>
+.ovr-number{
+    font-size:48px;
+    line-height:.8;
+    font-weight:1000;
+}
 
-                        <p>
-                            Güncel FC Mobile haberleri burada
-                            otomatik olarak gösterilecek.
-                        </p>
+.ovr-text{
+    font-size:10px;
+    letter-spacing:2px;
+    color:#aaa;
+}
 
-                    </div>
 
-                </article>
+/* POS */
 
+.position{
+    margin-top:10px;
 
-                <article class="news-item">
-
-                    <div class="news-number">
-                        02
-                    </div>
-
-                    <div>
-
-                        <span class="news-tag">
-                            TRANSFER
-                        </span>
-
-                        <h3>
-                            Dünyadan futbolcu haberleri
-                        </h3>
-
-                        <p>
-                            Oyuncular ve gelecek kartlarla ilgili
-                            gelişmeler burada yayınlanacak.
-                        </p>
-
-                    </div>
-
-                </article>
-
-
-                <article class="news-item">
-
-                    <div class="news-number">
-                        03
-                    </div>
-
-                    <div>
-
-                        <span class="news-tag">
-                            UPDATE
-                        </span>
-
-                        <h3>
-                            FC Mobile veritabanı güncellemeleri
-                        </h3>
-
-                        <p>
-                            Yeni oyuncular ve kartlar eklendikçe
-                            sistem güncellenecek.
-                        </p>
-
-                    </div>
-
-                </article>
-
-            </div>
-
-        </section>
-
-
-        <!-- SIZINTILAR -->
-        <section id="leaks" class="content-section">
-
-            <div class="section-heading">
-
-                <div>
-                    <span class="section-label">LEAKS</span>
-                    <h2>🚨 Gelebilecek Oyuncular</h2>
-                </div>
-
-                <span class="warning">
-                    ⚠️ KESİN DEĞİL
-                </span>
-
-            </div>
-
-
-            <div class="leak-box">
-
-                <div class="leak-icon">
-                    🔮
-                </div>
-
-                <div>
-
-                    <h3>
-                        Gelecek oyuncu tahminleri
-                    </h3>
-
-                    <p>
-                        Bu bölümde resmi olarak doğrulanmamış,
-                        ancak kaynaklarda yer alan muhtemel
-                        oyuncular gösterilecek.
-                    </p>
-
-                    <small>
-                        ⚠️ Sızıntılar kesin bilgi değildir.
-                    </small>
-
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- FOOTER -->
-    <footer>
-
-        <div class="footer-logo">
-            ⚽ FC MOBILE HUB
-        </div>
-
-        <p>
-            FC Mobile oyuncu ve haber platformu
-        </p>
-
-        <div class="footer-line"></div>
-
-        <small>
-            © 2026 FC Mobile Hub
-        </small>
-
-    </footer>
-
-
-    <!-- JAVASCRIPT -->
-    <script src="app.js"></script>
-
-</body>
-</html>
+    font-size:12
