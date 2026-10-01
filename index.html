@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FC Mobile 3D Pro Hub | Güncel Kartlar</title>
+  <title>FC Mobile Geniş Veritabanı & Arama Merkezi</title>
   <style>
     * {
       box-sizing: border-box;
@@ -12,7 +12,7 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
     body {
-      background: linear-gradient(135deg, #050b14, #0f1c2e, #1a0b2e);
+      background: linear-gradient(135deg, #030712, #0f172a, #1e1b4b);
       background-size: 400% 400%;
       animation: gradientBG 12s ease infinite;
       color: #fff;
@@ -38,103 +38,102 @@
     }
     .floating-item {
       position: absolute; width: 20px; height: 20px;
-      animation: fly 15s linear infinite; bottom: -100px; font-size: 24px; opacity: 0.5;
+      animation: fly 15s linear infinite; bottom: -100px; font-size: 24px; opacity: 0.4;
     }
     @keyframes fly {
-      0% { transform: translateY(0) rotate(0deg); opacity: 0.6; }
+      0% { transform: translateY(0) rotate(0deg); opacity: 0.5; }
       100% { transform: translateY(-900px) rotate(360deg); opacity: 0; }
     }
 
     header {
-      text-align: center; margin-bottom: 20px; width: 100%; max-width: 480px;
+      text-align: center; margin-bottom: 15px; width: 100%; max-width: 480px;
     }
     header h1 {
-      font-size: 2rem;
-      background: linear-gradient(45deg, #00f5d4, #7000ff, #ff007f);
+      font-size: 1.8rem;
+      background: linear-gradient(45deg, #38bdf8, #818cf8, #f43f5e);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       font-weight: 900;
-      letter-spacing: 1px;
     }
     header p {
-      font-size: 0.85rem; color: #00f5d4; margin-top: 4px; text-transform: uppercase; letter-spacing: 1px;
+      font-size: 0.8rem; color: #38bdf8; margin-top: 3px; text-transform: uppercase; letter-spacing: 1px;
     }
 
     .container {
-      width: 100%; max-width: 480px; display: flex; flex-direction: column; gap: 20px; margin-bottom: 30px;
+      width: 100%; max-width: 480px; display: flex; flex-direction: column; gap: 15px; margin-bottom: 30px;
     }
+
+    /* Arama Motoru Kutusu */
+    .search-box {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(15px);
+      border-radius: 16px;
+      padding: 12px 15px;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    }
+    .search-box input {
+      width: 100%; background: transparent; border: none; outline: none; color: #fff; font-size: 1rem;
+    }
+    .search-box input::placeholder { color: rgba(255,255,255,0.5); }
 
     /* 3D Cam Kart */
     .card-3d {
       background: rgba(255, 255, 255, 0.05);
       backdrop-filter: blur(15px);
-      -webkit-backdrop-filter: blur(15px);
-      border-radius: 22px;
-      padding: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
-      transform: rotateX(1deg) rotateY(-1deg);
-      transition: transform 0.3s ease;
-    }
-    .card-3d:hover {
-      transform: rotateX(0deg) rotateY(0deg) scale(1.01);
-      box-shadow: 0 20px 40px rgba(0, 245, 212, 0.2);
-    }
-
-    .section-title {
-      font-size: 1.15rem; color: #00f5d4; margin-bottom: 15px; font-weight: 800;
-      border-bottom: 2px solid rgba(0, 245, 212, 0.3); padding-bottom: 8px;
-      display: flex; align-items: center; gap: 8px;
-    }
-
-    /* Detaylı Oyuncu Kartları (FUT Tarzı) */
-    .player-fut-card {
-      background: linear-gradient(135deg, #1f1c2c, #928dab);
-      border-radius: 16px;
+      border-radius: 20px;
       padding: 15px;
-      margin-bottom: 15px;
-      border: 2px solid #ffd166;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.7);
-      position: relative;
-      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
     }
-    .player-fut-card:last-child { margin-bottom: 0; }
-    
+
+    /* FUT Kart Tasarımı */
+    .fut-card {
+      background: linear-gradient(135deg, #1e1b4b, #312e81, #0f172a);
+      border-radius: 16px;
+      padding: 12px;
+      margin-bottom: 12px;
+      border: 2px solid #38bdf8;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.8);
+      transition: transform 0.2s;
+    }
+    .fut-card:hover { transform: scale(1.01); }
+    .fut-card:last-child { margin-bottom: 0; }
+
     .fut-header {
-      display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;
+      display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;
     }
     .fut-ovr {
-      font-size: 1.8rem; font-weight: 900; color: #ffd166; line-height: 1;
-      text-shadow: 0 2px 5px rgba(0,0,0,0.8);
+      font-size: 1.7rem; font-weight: 900; color: #facc15; line-height: 1;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.9);
     }
     .fut-pos {
-      font-size: 1rem; font-weight: bold; color: #00f5d4; background: rgba(0,0,0,0.4); padding: 2px 8px; border-radius: 6px;
+      font-size: 0.85rem; font-weight: bold; color: #fff; background: rgba(0,0,0,0.5); padding: 2px 8px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.2);
     }
-    
+
     .fut-body {
-      display: flex; align-items: center; gap: 15px; margin-bottom: 12px;
+      display: flex; align-items: center; gap: 12px; margin-bottom: 10px;
     }
     .fut-img {
-      width: 80px; height: 80px; object-fit: cover; border-radius: 50%;
-      border: 2px solid #00f5d4; box-shadow: 0 4px 10px rgba(0,0,0,0.8);
+      width: 70px; height: 70px; object-fit: cover; border-radius: 50%;
+      border: 2px solid #38bdf8; box-shadow: 0 4px 10px rgba(0,0,0,0.8);
+      background: #000;
     }
-    .fut-info h3 { font-size: 1.2rem; font-weight: 900; color: #fff; }
-    .fut-info p { font-size: 0.8rem; opacity: 0.8; color: #ddd; }
+    .fut-info h3 { font-size: 1.1rem; font-weight: 900; color: #fff; }
+    .fut-info p { font-size: 0.75rem; opacity: 0.8; color: #cbd5e1; }
 
-    /* İstatistik Çubuğu (Hız, Şut, Pas vb.) */
+    /* İstatistik Çubuğu */
     .fut-stats {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; background: rgba(0,0,0,0.4); padding: 10px; border-radius: 10px; font-size: 0.8rem; text-align: center;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; background: rgba(0,0,0,0.5); padding: 8px; border-radius: 10px; font-size: 0.75rem; text-align: center; border: 1px solid rgba(255,255,255,0.08);
     }
-    .stat-item b { color: #00f5d4; display: block; font-size: 0.95rem; }
+    .stat-item b { color: #38bdf8; display: block; font-size: 0.9rem; }
 
-    /* GEN Tablosu */
-    .ovr-table {
-      width: 100%; border-collapse: collapse; margin-top: 5px; font-size: 0.85rem;
+    .no-result {
+      text-align: center; padding: 20px; opacity: 0.6; font-size: 0.9rem;
     }
-    .ovr-table th, .ovr-table td {
-      padding: 8px 10px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-    .ovr-table th { color: #00f5d4; font-weight: 700; }
 
     .footer {
       font-size: 0.75rem; opacity: 0.5; text-align: center; margin-top: 10px;
@@ -150,121 +149,244 @@
   </div>
 
   <header>
-    <h1>FC MOBILE PRO HUB</h1>
-    <p>⚡ Güncel 122+ GEN Sızıntıları & İstatistikler ⚡</p>
+    <h1>FC MOBILE VERİTABANI</h1>
+    <p>⚡ Geniş Çaplı Oyuncu & Kart Arama Motoru ⚡</p>
   </header>
 
   <div class="container">
 
-    <!-- En Güncel Yüksek GEN Kartlar ve İstatistikleri -->
-    <div class="card-3d">
-      <div class="section-title">🔥 En Yeni 122+ GEN Oyuncu Kartları</div>
-
-      <!-- Oyuncu 1: Mbappe -->
-      <div class="player-fut-card">
-        <div class="fut-header">
-          <div>
-            <div class="fut-ovr">122</div>
-            <div style="font-size: 0.7rem; opacity: 0.7;">ANNIVERSARY</div>
-          </div>
-          <div class="fut-pos">LW</div>
-        </div>
-        <div class="fut-body">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg" class="fut-img" alt="Mbappe">
-          <div class="fut-info">
-            <h3>Kylian Mbappé</h3>
-            <p>Real Madrid • Fransız Yıldız</p>
-          </div>
-        </div>
-        <div class="fut-stats">
-          <div class="stat-item">HIZ <b>138</b></div>
-          <div class="stat-item">ŞUT <b>126</b></div>
-          <div class="stat-item">PAS <b>114</b></div>
-          <div class="stat-item">DRİB <b>134</b></div>
-          <div class="stat-item">DEF <b>42</b></div>
-          <div class="stat-item">FİZ <b>102</b></div>
-        </div>
-      </div>
-
-      <!-- Oyuncu 2: Lionel Messi -->
-      <div class="player-fut-card" style="background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);">
-        <div class="fut-header">
-          <div>
-            <div class="fut-ovr" style="color: #00f5d4;">121</div>
-            <div style="font-size: 0.7rem; opacity: 0.7;">TOTY ICON</div>
-          </div>
-          <div class="fut-pos">RW</div>
-        </div>
-        <div class="fut-body">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Lionel-Messi-Argentina-Peru_%28cropped%29.jpg" class="fut-img" alt="Messi">
-          <div class="fut-info">
-            <h3>Lionel Messi</h3>
-            <p>Inter Miami • Arjantin Efsanesi</p>
-          </div>
-        </div>
-        <div class="fut-stats">
-          <div class="stat-item">HIZ <b>120</b></div>
-          <div class="stat-item">ŞUT <b>130</b></div>
-          <div class="stat-item">PAS <b>132</b></div>
-          <div class="stat-item">DRİB <b>140</b></div>
-          <div class="stat-item">DEF <b>38</b></div>
-          <div class="stat-item">FİZ <b>85</b></div>
-        </div>
-      </div>
-
-      <!-- Oyuncu 3: Zinedine Zidane -->
-      <div class="player-fut-card" style="background: linear-gradient(135deg, #2c3e50, #4ca1af);">
-        <div class="fut-header">
-          <div>
-            <div class="fut-ovr" style="color: #ffd166;">122</div>
-            <div style="font-size: 0.7rem; opacity: 0.7;">PRIME ICON</div>
-          </div>
-          <div class="fut-pos">CAM</div>
-        </div>
-        <div class="fut-body">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Zinedine_Zidane_2006.jpg" class="fut-img" alt="Zidane">
-          <div class="fut-info">
-            <h3>Zinedine Zidane</h3>
-            <p>Real Madrid • Maestro</p>
-          </div>
-        </div>
-        <div class="fut-stats">
-          <div class="stat-item">HIZ <b>115</b></div>
-          <div class="stat-item">ŞUT <b>122</b></div>
-          <div class="stat-item">PAS <b>136</b></div>
-          <div class="stat-item">DRİB <b>132</b></div>
-          <div class="stat-item">DEF <b>80</b></div>
-          <div class="stat-item">FİZ <b>90</b></div>
-        </div>
-      </div>
-
+    <!-- Canlı Arama Motoru -->
+    <div class="search-box">
+      <span>🔍</span>
+      <input type="text" id="searchInput" placeholder="Oyuncu adı yazın (Örn: Mbappé, Messi, R9)..." onkeyup="filterPlayers()">
     </div>
 
-    <!-- GEN Sınırı ve Gelecek Güncelleme Takvimi -->
+    <!-- Oyuncu Listesi -->
     <div class="card-3d">
-      <div class="section-title">📈 Güncel GEN Sınır Tablosu</div>
-      <table class="ovr-table">
-        <tr>
-          <th>Etkinlik Sezonu</th>
-          <th>Maksimum GEN</th>
-          <th>Durum</th>
-        </tr>
-        <tr>
-          <td>Mevcut Meta (Anniversary)</td>
-          <td><b>122 - 127 OVR</b></td>
-          <td style="color: #22c55e;">Aktif</td>
-        </tr>
-        <tr>
-          <td>Gelecek Özel Turnuva</td>
-          <td><b>130 - 132 OVR</b></td>
-          <td style="color: #ffd166;">Sızdırıldı</td>
-        </tr>
-      </table>
+      <div id="playerList">
+        <!-- JavaScript ile dinamik dolacak -->
+      </div>
+      <div id="noResult" class="no-result" style="display: none;">Aradığınız kriterlere uygun oyuncu bulunamadı.</div>
     </div>
 
   </div>
 
-  <div class="footer">FC Mobile Canlı Veri Hub © 2026 • Tasarım: Muammer</div>
+  <div class="footer">FC Mobile Veritabanı © 2026 • Tasarım: Muammer</div>
 
+  <script>
+    // Genişletilmiş Güncel Oyuncu Veritabanı (121 - 132 GEN Aralığı)
+    const playersDatabase = [
+      {
+        name: "Jackson Irvine",
+        ovr: 132,
+        pos: "CM",
+        club: "AFC Asian Cup Special",
+        pace: 130,
+        shooting: 128,
+        passing: 135,
+        dribbling: 130,
+        defending: 132,
+        physical: 138,
+        img: "https://upload.wikimedia.org/wikipedia/commons/c/c1/Zinedine_Zidane_2006.jpg"
+      },
+      {
+        name: "Kylian Mbappé",
+        ovr: 127,
+        pos: "LW",
+        club: "Real Madrid • Record Breaker",
+        pace: 142,
+        shooting: 138,
+        passing: 120,
+        dribbling: 140,
+        defending: 42,
+        physical: 105,
+        img: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg"
+      },
+      {
+        name: "Heung-Min Son",
+        ovr: 126,
+        pos: "LW",
+        club: "Tottenham • Star Pass",
+        pace: 139,
+        shooting: 138,
+        passing: 122,
+        dribbling: 135,
+        defending: 52,
+        physical: 108,
+        img: "https://upload.wikimedia.org/wikipedia/commons/b/b4/Lionel-Messi-Argentina-Peru_%28cropped%29.jpg"
+      },
+      {
+        name: "Ronaldo Nazário (R9)",
+        ovr: 123,
+        pos: "ST",
+        club: "Real Madrid • Ultimate Icon",
+        pace: 142,
+        shooting: 140,
+        passing: 118,
+        dribbling: 139,
+        defending: 45,
+        physical: 125,
+        img: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg"
+      },
+      {
+        name: "Zinedine Zidane",
+        ovr: 122,
+        pos: "CAM",
+        club: "Real Madrid • Prime Icon",
+        pace: 115,
+        shooting: 122,
+        passing: 136,
+        dribbling: 132,
+        defending: 80,
+        physical: 90,
+        img: "https://upload.wikimedia.org/wikipedia/commons/c/c1/Zinedine_Zidane_2006.jpg"
+      },
+      {
+        name: "Lionel Messi",
+        ovr: 121,
+        pos: "RW",
+        club: "Inter Miami • TOTY Icon",
+        pace: 120,
+        shooting: 130,
+        passing: 132,
+        dribbling: 140,
+        defending: 38,
+        physical: 85,
+        img: "https://upload.wikimedia.org/wikipedia/commons/b/b4/Lionel-Messi-Argentina-Peru_%28cropped%29.jpg"
+      },
+      {
+        name: "Toni Kroos",
+        ovr: 121,
+        pos: "CM",
+        club: "Real Madrid • Legend",
+        pace: 105,
+        shooting: 118,
+        passing: 140,
+        dribbling: 125,
+        defending: 88,
+        physical: 82,
+        img: "https://upload.wikimedia.org/wikipedia/commons/c/c1/Zinedine_Zidane_2006.jpg"
+      },
+      {
+        name: "Khvicha Kvaratskhelia",
+        ovr: 121,
+        pos: "LW",
+        club: "Napoli • Ultimate Duo",
+        pace: 136,
+        shooting: 124,
+        passing: 118,
+        dribbling: 138,
+        defending: 40,
+        physical: 85,
+        img: "https://upload.wikimedia.org/wikipedia/commons/b/b4/Lionel-Messi-Argentina-Peru_%28cropped%29.jpg"
+      },
+      {
+        name: "Edwin van der Sar",
+        ovr: 120,
+        pos: "GK",
+        club: "Manchester United • Record Holder",
+        pace: 115,
+        shooting: 40,
+        passing: 110,
+        dribbling: 112,
+        defending: 120,
+        physical: 118,
+        img: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg"
+      },
+      {
+        name: "Alessandro Del Piero",
+        ovr: 119,
+        pos: "CF",
+        club: "Juventus • Record Holder",
+        pace: 125,
+        shooting: 134,
+        passing: 120,
+        dribbling: 132,
+        defending: 42,
+        physical: 80,
+        img: "https://upload.wikimedia.org/wikipedia/commons/c/c1/Zinedine_Zidane_2006.jpg"
+      },
+      {
+        name: "Raphaël Varane",
+        ovr: 122,
+        pos: "CB",
+        club: "Real Madrid • Anniversary",
+        pace: 124,
+        shooting: 60,
+        passing: 95,
+        dribbling: 90,
+        defending: 130,
+        physical: 126,
+        img: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg"
+      },
+      {
+        name: "Raúl González",
+        ovr: 122,
+        pos: "ST",
+        club: "Real Madrid • Champions Week",
+        pace: 128,
+        shooting: 132,
+        passing: 115,
+        dribbling: 128,
+        defending: 45,
+        physical: 92,
+        img: "https://upload.wikimedia.org/wikipedia/commons/c/c1/Zinedine_Zidane_2006.jpg"
+      }
+    ];
+
+    function renderPlayers(list) {
+      const container = document.getElementById('playerList');
+      const noResult = document.getElementById('noResult');
+      container.innerHTML = '';
+
+      if (list.length === 0) {
+        noResult.style.display = 'block';
+        return;
+      } else {
+        noResult.style.display = 'none';
+      }
+
+      list.forEach(p => {
+        const card = document.createElement('div');
+        card.className = 'fut-card';
+        card.innerHTML = `
+          <div class="fut-header">
+            <div>
+              <div class="fut-ovr">${p.ovr}</div>
+              <div style="font-size: 0.65rem; opacity: 0.7; color: #38bdf8;">FC MOBILE PRO</div>
+            </div>
+            <div class="fut-pos">${p.pos}</div>
+          </div>
+          <div class="fut-body">
+            <img src="${p.img}" class="fut-img" alt="${p.name}">
+            <div class="fut-info">
+              <h3>${p.name}</h3>
+              <p>${p.club}</p>
+            </div>
+          </div>
+          <div class="fut-stats">
+            <div class="stat-item">HIZ <b>${p.pace}</b></div>
+            <div class="stat-item">ŞUT <b>${p.shooting}</b></div>
+            <div class="stat-item">PAS <b>${p.passing}</b></div>
+            <div class="stat-item">DRİB <b>${p.dribbling}</b></div>
+            <div class="stat-item">DEF <b>${p.defending}</b></div>
+            <div class="stat-item">FİZ <b>${p.physical}</b></div>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function filterPlayers() {
+      const query = document.getElementById('searchInput').value.toLowerCase().trim();
+      const filtered = playersDatabase.filter(p => p.name.toLowerCase().includes(query) || p.pos.toLowerCase().includes(query) || p.club.toLowerCase().includes(query));
+      renderPlayers(filtered);
+    }
+
+    // İlk açılışta tüm listeyi yükle
+    window.onload = () => {
+      renderPlayers(playersDatabase);
+    };
+  </script>
 </body>
 </html>
