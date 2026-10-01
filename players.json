@@ -1,0 +1,66 @@
+[
+    {
+        "name": "Patrick Vieira",
+        "ovr": 122,
+        "position": "CM",
+        "pac": 150,
+        "sho": 132,
+        "pas": 146,
+        "dri": 146,
+        "def": 150,
+        "phy": 151,
+        "image": "images/vieira-122.png"
+    },
+
+    {
+        "name": "Sergio Agüero",
+        "ovr": 122,
+        "position": "ST",
+        "pac": 157,
+        "sho": 155,
+        "pas": 133,
+        "dri": 154,
+        "def": 87,
+        "phy": 137,
+        "image": "images/aguero-122.png"
+    },
+
+    {
+        "name": "Lionel Messi",
+        "ovr": 122,
+        "position": "RW",
+        "pac": 155,
+        "sho": 151,
+        "pas": 152,
+        "dri": 156,
+        "def": 84,
+        "phy": 123,
+        "image": "images/messi-122.png"
+    },
+
+    {
+        "name": "Cristiano Ronaldo",
+        "ovr": 120,
+        "position": "LW",
+        "pac": 153,
+        "sho": 155,
+        "pas": 137,
+        "dri": 151,
+        "def": 86,
+        "phy": 143,
+        "image": "images/ronaldo-120.png"
+    },
+
+    {
+        "name": "Kylian Mbappé",
+        "ovr": 120,
+        "position": "ST",
+        "pac": 160,
+        "sho": 151,
+        "pas": 132,
+        "dri": 155,
+        "def": 79,
+        "phy": 119,
+        "image": "images/mbappe-120.png"
+    }
+]
